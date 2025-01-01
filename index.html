@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Background</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #09090e;
+            display: flex;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .main-content {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-box {
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-box {
+            width: 1600px;
+            left: 0;
+        }
+
+        .nav {
+            left: 0;
+            max-width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile-container {
+            flex: 1;
+            padding: 50px;
+            padding-top: 0;
+            padding-right: 70px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-right h1 {
+            font-family: "Proza Libre", serif;
+            font-size: 80px;
+            color: #f5f5f5;
+        }
+        
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #f5f5f5;
+        }
+
+        .experience-entry {
+            margin-bottom: 20px;
+            border-left: 5px solid #4285f4;
+            padding-left: 20px;
+        }
+
+        .experience-entry .title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .experience-entry .company {
+            font-style: italic;
+            color: #777;
+        }
+
+        .experience-entry .date {
+            font-size: 0.9em;
+            color: #aaa;
+        }   
+        .profile-details {
+            padding-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-left {
+            flex: 1;
+            max-width: 250px;
+            text-align: center;
+        }
+        
+        .profile-right {
+            flex: 2;
+            padding-left: 20px;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+        
+        .profile-pic {
+            width: 70%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        
+        .profile-left a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            border: 1px solid rgb(96, 96, 96);
+            padding: 5px 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            border-color: #eaeaea;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .profile-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .profile-right {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+        
+.navigation {
+    position: relative;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.transparent-link {
+    background-color: transparent; /* Makes the background transparent */
+    border: none; /* Removes any border */
+    color: inherit; /* Ensures the text color matches the page's styling */
+    text-decoration: none; /* Removes the underline */
+    padding: 0; /* Removes extra space around the link */
+    cursor: pointer; /* Indicates it's clickable */
+}
+.transparent-link:hover {
+    color: inherit; /* Ensures the text color does not change on hover */
+    text-decoration: none; /* Prevents underline from appearing on hover */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box top-box">
+            <div class="canvas-container">
+                <canvas id="dynamicCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+        <div class="box bottom-box">
+            <div class="main-content">
+                <div class="nav" style="padding-right: 30px;">
+                    <div class="navigation  " style="top: 35%;">
+                        <button class="toggle-btn toggle-btn-active" id="toggleNav" style="top: -30%; background: transparent; border: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width: 24px; height: 24px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+                        
+                        <ul id="navList" class="nav-items">
+                            <li class="nav-item"><a href="#introduction" class="transparent-link">Introduction</a></li>
+                            <li class="nav-item"><a href="#introduction" class="transparent-link">Introduction</a></li>
+                            <li class="nav-item"><a href="#introduction" class="transparent-link">Introduction</a></li>
+                            <li class="nav-item"><a href="#introduction" class="transparent-link">Introduction</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <div class="profile-container"  style="overflow: hidden;">
+                    <section class="profile-details">
+                        <div class="profile-left" style="margin-left: 60px;">
+                            <img src="sarthak.jpg" alt="Profile Picture" class="profile-pic"><br>
+                            <a href="https://maps.app.goo.gl/2ejzvDtNLwe91UE9A" target="_blank"><i class="fa fa-globe" style="font-size:17px;color:rgb(96, 99, 102);"></i> &nbsp; Delhi NCR</a>
+                        </div>
+                        <div class="profile-right"  style="margin-left: 50px;">
+                            <h1 style="margin-bottom: 1px;">Sarthak Aggarwal</h1>
+                            <h2 style="margin-top: -10px;margin-bottom: 50px;color:#989797">Software Engineer</h2>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/in/sarthak-aggarwal-mru/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:17px;color:white"></i> &nbsp; LinkedIn</a>
+                                <a href="https://github.com/Sarthak359" target="_blank"><i class="fa fa-github" style="font-size:17px"></i>  &nbsp; GitHub</a>
+                                <a href="https://drive.google.com/file/d/1qkxozohwjbt0b2Yk3gqZUhemE9DH2DmS/view?usp=sharing" target="_blank">
+                                    <i class="fa fa-file-pdf-o" style="font-size:17px;color:white"></i> &nbsp; Resume</a>
+                            </div>
+                            <p style="padding-top: 20px;font-size:20px">Hello, I'm a software engineer from Delhi NCR with a passion for full-stack web development and object-oriented programming.</p>
+                        </div>
+                    </section>
+                    <section id="experience">
+                        <h2>Experience</h2>
+                        <div class="experience-entry">
+                            <div class="title">Web Developer</div>
+                            <div class="company">Tech Company</div>
+                            <div class="date">June 2020 - Present</div>
+                            <p>Developed and maintained web applications using modern frameworks.</p>
+                        </div>
+                        <div class="experience-entry">
+                            <div class="title">Intern</div>
+                            <div class="company">Startup Inc.</div>
+                            <div class="date">Jan 2020 - May 2020</div>
+                            <p>Assisted in the development of a mobile application.</p>
+                        </div>
+                    </section>
+                    <section id="projects">
+                        <h2>Projects</h2>
+                        <p>Check out my projects on GitHub!</p>
+                    </section>
+                    <section id="contact">
+                        <h2>Contact</h2>
+                        <p>Email me at: anthony@example.com</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleNav');
+const navList = document.getElementById('navList');
+
+toggleButton.addEventListener('click', () => {
+    if (navList.style.display === 'none') {
+        navList.style.display = 'block';
+    } else {
+        navList.style.display = 'none';
+    }
+});
+
+        const canvas = document.getElementById("dynamicCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let dots = [];
+        const dotSpacing = 22;
+        const dotRadius = 0.7;
+        const maxLightRadius = 900;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function generateDots() {
+            dots = [];
+            for (let y = 0; y < canvas.height; y += dotSpacing) {
+                for (let x = 0; x < canvas.width; x += dotSpacing) {
+                    dots.push({ x, y });
+                }
+            }
+        }
+
+        generateDots();
+
+        let mouse = { x: -maxLightRadius, y: -maxLightRadius };
+        let smoothMouse = { x: -maxLightRadius, y: -maxLightRadius };
+
+        document.addEventListener("mousemove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        function smoothTransition() {
+            smoothMouse.x += (mouse.x - smoothMouse.x) * 0.09;
+            smoothMouse.y += (mouse.y - smoothMouse.y) * 0.09;
+        }
+
+        function drawBackground() {
+
+            const angle = 20 * Math.PI / 180; // Convert 25 degrees to radians
+            const x2 = Math.cos(angle) * 0; // Starting point X (0)
+            const y2 = Math.sin(angle) * 0; // Starting point Y (0)
+            const x1 = Math.cos(angle) * canvas.width; // Ending point X
+            const y1 = Math.sin(angle) * canvas.width; // Ending point Y
+            const gradient = ctx.createLinearGradient(x2, y1, x1, y2);
+            gradient.addColorStop(0.18, "rgba(0,0,0)");
+            gradient.addColorStop(1, "rgba(23,0,83,1)");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawDots() {
+            dots.forEach(dot => {
+                const distance = Math.hypot(dot.x - smoothMouse.x, dot.y - smoothMouse.y);
+                let alpha = Math.max(0, 1 - distance / maxLightRadius);
+                alpha = Math.pow(alpha, 2);
+                ctx.fillStyle = `rgba(0, 255, 0, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, dotRadius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function drawLightEffect() {
+            const gradient = ctx.createRadialGradient(smoothMouse.x, smoothMouse.y, 0, smoothMouse.x, smoothMouse.y, maxLightRadius);
+            gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+            gradient.addColorStop(1, "rgba(0, 0, 0, 1)");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBackground();
+            smoothTransition();
+            drawDots();
+            drawLightEffect();
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            generateDots();
+        });
+    </script>
+</body>
+</html>

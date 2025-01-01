@@ -1,0 +1,39 @@
+
+.nav {
+    padding: 20px;
+  }
+  
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav li {
+    padding-left: 25px;
+    margin: 35px 0;
+    position: relative;
+    transition: transform 0.25s ease-out;
+  }
+  .nav li:hover {
+    transform: translateX(9px); /* Move right by 7px on hover */
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    transition: color 0.9s ease-in-out;
+  }
+  
+  .nav li::before {
+    padding-left: 20px;
+    content: "—";
+    color: #6b6b6beb; /* Arrow color */
+    position: absolute;
+    left: -20px;
+    top: 0px;
+  }
+  
