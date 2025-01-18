@@ -1,4 +1,210 @@
 
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #09090e;
+  display: flex;
+  color: white;
+  font-family: sans-serif;
+}
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+h1{
+  font-family: "Roboto Slab", serif;
+}
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
+  position: relative;
+}
+
+.box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.top-box {
+  top: 0;
+  left: 0;
+}
+
+.bottom-box {
+  width: 100%;
+  left: 0;
+}
+
+.nav {
+  left: 0;
+  max-width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  flex: 1;
+  padding: 50px;
+  padding-top: 0;
+  padding-right: 70px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.profile-right h1 {
+  font-family: "Proza Libre", serif;
+  font-size: 80px;
+  color: #f5f5f5;
+}
+
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f5f5f5;
+}
+
+.experience-entry {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.experience-entry .title {
+  font-weight: bold;
+}
+
+.experience-entry .company {
+  font-style: italic;
+  color: #777;
+}
+
+.experience-entry .date {
+  font-size: 0.9em;
+  color: #aaa;
+}   
+.profile-details {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-left {
+  flex: 1;
+  max-width: 250px;
+  text-align: center;
+}
+
+.profile-right {
+  flex: 2;
+  padding-left: 20px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.profile-pic {
+  width: 70%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.profile-left a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  border: 1px solid rgb(96, 96, 96);
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  border-color: #eaeaea;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-details {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .profile-right {
+      padding-left: 0;
+      text-align: center;
+  }
+}
+
+.navigation {
+position: relative;
+}
+
+.toggle-btn {
+position: absolute;
+top: 10px;
+left: 10px;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+font-size: 14px;
+border-radius: 4px;
+}
+.transparent-link {
+background-color: transparent; /* Makes the background transparent */
+border: none; /* Removes any border */
+color: inherit; /* Ensures the text color matches the page's styling */
+text-decoration: none; /* Removes the underline */
+padding: 0; /* Removes extra space around the link */
+cursor: pointer; /* Indicates it's clickable */
+}
+.transparent-link:hover {
+color: inherit; /* Ensures the text color does not change on hover */
+text-decoration: none; /* Prevents underline from appearing on hover */
+}
+
 .nav {
     padding: 20px;
   }
@@ -36,4 +242,99 @@
     left: -20px;
     top: 0px;
   }
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
   
+  .card {
+    width: 46%;
+    position: relative;
+    padding: 20px;
+    background: transparent; /* Transparent background */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(96, 96, 96, 0.484);
+    border-radius: 10px;
+    backdrop-filter: blur(0.8px); /* Apply blur effect */
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.03); /* Slightly scale up the card */
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth scaling */
+}
+
+  .card-content {
+    position: relative;
+    z-index: 1; /* Keep the content above the blurred background */
+    color: white;
+    font-size: 18px;
+  }
+  #experience h1{
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .experience-entry .title{
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+  }
+  .experience-entry .title .span1{
+    font-size: 23px;
+  }
+  .experience-entry .title .span2{
+    font-size: 18px;
+    color: #aaa;
+  }
+  .experience-entry .company{
+    font-size: 14px;
+    color: aquamarine;
+  }/* Base styles for the list */
+/* Base styles for the list */
+ul.custom-list {
+  list-style: disc; /* Default bullet point style */
+  list-style-position: inside; /* Position the marker inside the content area */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between list items */
+}
+
+/* Style for individual list items */
+.custom-list-item {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+  line-height: 1.5;
+  padding-left: 24px; /* Add space for custom marker */
+}
+
+/* Custom marker styles */
+.custom-list-item::marker {
+  color: aquamarine; /* Customize marker color */
+  font-size: 20px; /* Customize marker size */
+}
+
+/* Custom hover effect for the list item */
+.custom-list-item:hover {
+  cursor: pointer;
+}
+
+/* Optional: Add transition for smooth hover effect */
+.custom-list-item {
+  transition: all 0.3s ease;
+}
+
