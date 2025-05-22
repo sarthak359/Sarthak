@@ -131,13 +131,14 @@ h1, h2, h3, h4, h5, h6 {
 .profile-left {
   flex: 1;
   max-width: 250px;
+  padding-right: 20px;
   text-align: center;
 }
 
 .profile-right {
   flex: 2;
   padding-left: 20px;
-  padding-right: 30px;
+  padding-right: 20px;
   box-sizing: border-box;
 }
 
@@ -177,8 +178,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 768px) {
-
   .profile-details {
+    padding-top: 100px;
       flex-direction: column;
       align-items: center;
   }
@@ -192,16 +193,24 @@ h1, h2, h3, h4, h5, h6 {
   .profile-left {
       margin-left: 0 !important;
       margin-bottom: 30px;
+  }  
+  .profile-right h1 {
+    padding-top: 30px;
+    font-size: 25px;
+    padding-bottom: 10px;
   }
   
-  .profile-right h1 {
-      font-size: 40px;
-      padding-bottom: 10px;
+  .profile-right h2 {
+      font-size: 15px;
+  }
+  
+  .profile-right .p {
+      font-size: 10px;
   }
   
   .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
   }
   
   .main-content {
@@ -212,6 +221,10 @@ h1, h2, h3, h4, h5, h6 {
   .profile-container {
       padding-left: 20px;
       padding-right: 0px;
+  }
+  .social-icons{
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   .social-icons a {
     margin-right: 0px;
