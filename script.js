@@ -56,8 +56,8 @@ var typed = new Typed('#element', {
                 const isMobile = window.matchMedia('(max-width: 760px)').matches;
                 if (isMobile) {
                     document.addEventListener("scroll", () => {
-                        mouse.x = window.innerWidth / 2;
-                        mouse.y = window.scrollY + (window.innerHeight / 2);
+                        mouse.x = (window.innerWidth / 4);
+                        mouse.y = (window.innerHeight / 2);
                     });
                 }
         
