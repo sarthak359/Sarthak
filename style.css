@@ -403,7 +403,7 @@ ul.custom-list {
   .card {
     padding: 10px;
     left: -10px;
-    margin-top: 50px;
+    margin-top: 0;
     scale: 0.9;
       width: 100%;
   }
