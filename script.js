@@ -52,6 +52,14 @@ var typed = new Typed('#element', {
                     mouse.x = e.clientX;
                     mouse.y = e.clientY;
                 });
+                
+                const isMobile = window.matchMedia('(max-width: 760px)').matches;
+                if (isMobile) {
+                    document.addEventListener("scroll", () => {
+                        mouse.x = window.innerWidth / 2;
+                        mouse.y = window.scrollY + (window.innerHeight / 2);
+                    });
+                }
         
                 function smoothTransition() {
                     smoothMouse.x += (mouse.x - smoothMouse.x) * 0.09;
