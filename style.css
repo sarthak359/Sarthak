@@ -177,65 +177,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #eaeaea;
 }
 
-@media screen and (max-width: 768px) {
-  .profile-details {
-    padding-top: 100px;
-      flex-direction: column;
-      align-items: center;
-  }
 
-  .profile-right {
-      padding-left: 0;
-      text-align: center;
-      margin-left: 0 !important;
-  }
-  
-  .profile-left {
-      margin-left: 0 !important;
-      margin-bottom: 30px;
-  }  
-  .profile-right h1 {
-    padding-top: 30px;
-    font-size: 25px;
-    padding-bottom: 10px;
-  }
-  
-  .profile-right h2 {
-      font-size: 15px;
-  }
-  
-  .profile-right .p {
-      font-size: 10px;
-  }
-  
-  .profile-pic {
-      width: 150px;
-      height: 150px;
-  }
-  
-  .main-content {
-      height: auto;
-      padding-bottom: 50px;
-  }
-  
-  .profile-container {
-      padding-left: 20px;
-      padding-right: 0px;
-  }
-  .social-icons{
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .social-icons a {
-    margin-right: 0px;
-    scale: 0.9;
-    display: flex;
-    flex-direction: column;
-  }
-  .social-icons a:hover {
-    scale: 0.95;
-  }
-}
 
 .navigation {
 position: relative;
@@ -398,3 +340,83 @@ ul.custom-list {
   transition: all 0.3s ease;
 }
 
+@media screen and (max-width: 768px) {
+  .profile-details {
+    padding-top: 100px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .profile-right {
+      padding-left: 0;
+      text-align: center;
+      margin-left: 0 !important;
+  }
+  
+  .profile-left {
+      margin-left: 0 !important;
+      margin-bottom: 30px;
+  }  
+  .profile-right h1 {
+    padding-top: 30px;
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
+  
+  .profile-right h2 {
+      font-size: 15px;
+  }
+  
+  .profile-right .p {
+      font-size: 10px;
+  }
+  
+  .profile-pic {
+      width: 150px;
+      height: 150px;
+  }
+  
+  .main-content {
+      height: auto;
+      padding-bottom: 50px;
+  }
+  
+  .profile-container {
+      padding-left: 20px;
+      padding-right: 0px;
+  }
+  .social-icons{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .social-icons a {
+    margin-right: 0px;
+    scale: 0.9;
+    display: flex;
+    flex-direction: column;
+  }
+  .social-icons a:hover {
+    scale: 0.95;
+  }
+  .container{
+    display: contents;
+  }
+  .card {
+      width: 100%;
+  }
+  .experience-entry .title .span1{
+    font-size: 19px;
+  }
+  .experience-entry .title .span2{
+    font-size: 14px;
+    color: #aaa;
+  }
+  .experience-entry .company{
+    font-size: 10px;
+    color: aquamarine;
+  }
+  .custom-list-item {
+    padding-left:0;
+    text-align: justify;
+  }
+}
