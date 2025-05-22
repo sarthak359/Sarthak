@@ -408,6 +408,7 @@ ul.custom-list {
       width: 100%;
   }
   .experience-entry .title .span1{
+    padding-top: 10px;
     font-size: 21px;
   }
   .experience-entry .title .span2{
@@ -420,10 +421,12 @@ ul.custom-list {
   }
   .custom-list-item {
     padding-left:0;
+    padding-right:15px;
     text-align: justify;
   }
   #experience h1{
     padding-bottom: 0;
     text-align: center;
+    margin-left: -15px;
   }
 }
