@@ -401,6 +401,7 @@ ul.custom-list {
     display: contents;
   }
   .card {
+    padding: 10px;
     left: -10px;
     margin-top: 50px;
     scale: 0.9;
