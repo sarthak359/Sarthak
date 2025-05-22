@@ -252,7 +252,6 @@ text-decoration: none; /* Prevents underline from appearing on hover */
   .card {
     width: 46%;
     position: relative;
-    padding: 20px;
     background: transparent; /* Transparent background */
     border-radius: 8px;
     overflow: hidden;
@@ -402,6 +401,9 @@ ul.custom-list {
     display: contents;
   }
   .card {
+    left: -10px;
+    margin-top: 50px;
+    scale: 0.9;
       width: 100%;
   }
   .experience-entry .title .span1{
@@ -418,5 +420,9 @@ ul.custom-list {
   .custom-list-item {
     padding-left:0;
     text-align: justify;
+  }
+  #experience h1{
+    padding-bottom: 0;
+    text-align: center;
   }
 }

@@ -55,15 +55,19 @@ var typed = new Typed('#element', {
                 
                 const isMobile = window.matchMedia('(max-width: 760px)').matches;
                 if (isMobile) {
-                    document.addEventListener("scroll", () => {
-                        mouse.x = (window.innerWidth / 4);
-                        mouse.y = (window.innerHeight / 2);
-                    });
+                    mouse.x = (window.innerWidth / 4);
+                    mouse.y = (window.innerHeight / 2);
                 }
         
                 function smoothTransition() {
-                    smoothMouse.x += (mouse.x - smoothMouse.x) * 0.09;
-                    smoothMouse.y += (mouse.y - smoothMouse.y) * 0.09;
+                    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                    if (isMobile) {
+                        smoothMouse.x += (mouse.x - smoothMouse.x) * 0.05;
+                        smoothMouse.y += (mouse.y - smoothMouse.y) * 0.05;
+                    } else {
+                        smoothMouse.x += (mouse.x - smoothMouse.x) * 0.09;
+                        smoothMouse.y += (mouse.y - smoothMouse.y) * 0.09;
+                    }
                 }
         
                 function drawBackground() {
