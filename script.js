@@ -1,4 +1,9 @@
-
+var typed = new Typed('#element', {
+    strings: ['Sarthak Aggarwal', 'Software Engineer', 'CS Student', 'Full Stack Developer'],
+    typeSpeed: 80,
+    backSpeed: 40,
+    smartBackspace: true, // Default value
+  });
         
                 const canvas = document.getElementById("dynamicCanvas");
                 const ctx = canvas.getContext("2d");
