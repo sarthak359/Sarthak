@@ -1,8 +1,28 @@
+
+
+// Handle preloader fade-out only
+document.addEventListener('DOMContentLoaded', function() {
+    // Fade out preloader after 2 seconds
+    setTimeout(function() {
+        const preloader = document.querySelector('.preloader');
+        preloader.style.animation = 'fadeOut 1s ease-out forwards';
+        
+        // Remove preloader after animation completes
+        setTimeout(function() {
+            preloader.style.display = 'none';
+            // Remove this line since we don't need to fade in the content
+            // document.body.classList.add('content-visible');
+        }, 1000);
+    }, 2000);
+});
+
 var typed = new Typed('#element', {
     strings: ['Sarthak Aggarwal', 'Software Engineer', 'CS Student', 'Full Stack Developer'],
     typeSpeed: 80,
     backSpeed: 40,
     smartBackspace: true, // Default value
+    loop: true,
+    loopCount: Infinity,
   });
         
                 const canvas = document.getElementById("dynamicCanvas");
@@ -30,6 +50,7 @@ var typed = new Typed('#element', {
                 const dotSpacing = 22;
                 const dotRadius = 0.7;
                 const maxLightRadius = 900;
+                const isMobile = window.matchMedia('(max-width: 760px)').matches;
         
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
@@ -53,7 +74,6 @@ var typed = new Typed('#element', {
                     mouse.y = e.clientY;
                 });
                 
-                const isMobile = window.matchMedia('(max-width: 760px)').matches;
                 if (isMobile) {
                     mouse.x = (window.innerWidth / 4);
                     mouse.y = (window.innerHeight / 2);
