@@ -22,6 +22,7 @@ var typed = new Typed('#element', {
     backSpeed: 40,
     smartBackspace: true, // Default value
     loop: true,
+    backDelay: 900,
     loopCount: Infinity,
   });
         
