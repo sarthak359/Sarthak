@@ -1,5 +1,11 @@
-
-
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+const navbg = document.querySelector('.nav-bg');
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+    navbg.classList.toggle('active');
+});
 // Handle preloader fade-out only
 document.addEventListener('DOMContentLoaded', function() {
     // Fade out preloader after 2 seconds
@@ -141,3 +147,6 @@ var typed = new Typed('#element', {
                     canvas.height = window.innerHeight;
                     generateDots();
                 });
+canvas.addEventListener('wheel', function(e) {
+  window.scrollBy(0, e.deltaY);
+}, { passive: false });

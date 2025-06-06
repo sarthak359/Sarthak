@@ -1,3 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+:root {
+  --theme-color: #3498db; /* or whatever color you like */
+}
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  color: #fff;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: default;
+}
+button:focus,
+a:focus,
+#logo-link:focus,
+input:focus {
+  outline: 2px dashed #66ccaa;
+  outline-offset: 2px;
+}
+
+.navbar {
+  gap: 70px;
+}
+
+.navbar-div{
+  display: flex;
+}
+.navbar a {
+  font-family: "Fira Code", monospace;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #66ccaa;
+  text-decoration: none;
+}
+.navbar a .num{
+  color: #66ccaa;
+  margin-right: 0px;
+}
+#menu-icon {
+  font-size: 36px;
+  color: #fff;
+  display: none;
+}
+/* BREAKPOINTS */
+@media (max-width: 992px) {
+  .header {
+    padding: 1.25rem 4%;
+  }
+}
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+  .navbar-div{
+    display: none;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 4%;
+    display: none;
+  }
+  .navbar.active {
+    display: block;
+  }
+  .navbar a {
+    display: block;
+    margin: 1.5rem 0;
+  }
+  .nav-bg {
+    position: absolute;
+    top: 79px;
+    left: 0;
+    width: 100%;
+    height: 295px;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    display: none;
+  }
+  .nav-bg.active {
+    display: block;
+  }
+}
+
+.raleway-rale {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -97,6 +211,33 @@ body {
   60%   { transform: translate(-10px , -5px)}
   75%   { transform: translate(-20px , 5px)}
   100%   { transform: translate(0 , 10px)}
+}:root {
+  --theme-color: #66ccaa; /* or any theme color you prefer */
+}
+
+#logo-link {
+  color: var(--theme-color);
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  fill: none;
+  margin: 2rem 0;
+  cursor: pointer;
+  outline: 2px dashed transparent;
+  transition: color 0.3s ease;
+}
+
+#logo-link:hover {
+  fill: #132227; /* This affects currentColor */
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
+
+#logo #H path {
+  fill: var(--theme-color) !important; /* Always white H */
 }
 
 canvas {
@@ -121,10 +262,6 @@ h1{
   flex-direction: column;
 }
 
-.container {
-  position: relative;
-}
-
 .box {
   position: absolute;
   width: 100%;
@@ -140,14 +277,6 @@ h1{
   width: 100%;
   left: 0;
 }
-
-.nav {
-  left: 0;
-  max-width: 300px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
 .profile-container {
   flex: 1;
   padding-bottom: 50px;
@@ -172,9 +301,16 @@ h1{
   color: #f5f5f5;
 }
 
+.para p {
+  margin-bottom: 0px;
+}
 
 .social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 20px;
+  gap: 50px;
 }
 
 .social-icons a {
@@ -213,12 +349,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #aaa;
 }   
 .profile-details {
-  padding-top: 150px;
+  padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+.para {
+  display: none;
+  width: 95%;
 }
 
 .profile-left {
@@ -235,8 +375,10 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
 }
 
-.profile-right .para .p1{
-  padding-bottom: 100px;
+.profile-right .para .p1,.p2,.p3{
+  padding-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  text-align: justify;
 }
 
 .profile-pic {
@@ -258,22 +400,60 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
+.profile-left a:hover {
+  text-decoration: none;
+  color: #eaeaea;
+}
+.button { 
+  height: 40px;
+  width: 150px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #fff;
+  overflow: hidden;
+  border-radius: 20px;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #3c9074;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
+
+.button:hover {
+  color: #fff;
+  border: none;
+}
+
+.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+
 .social-icons a {
   display: inline-block;
-  margin-right: 10px;
   text-decoration: none;
   color: white;
   font-size: 14px;
-  border: 1px solid rgb(96, 96, 96);
-  padding: 5px 10px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
 }
-
-.social-icons a:hover {
-  border-color: #eaeaea;
-}
-
 
 
 .navigation {
@@ -304,50 +484,20 @@ color: inherit; /* Ensures the text color does not change on hover */
 text-decoration: none; /* Prevents underline from appearing on hover */
 }
 
-.nav {
-    padding: 20px;
-  }
-  
-  .nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav li {
-    padding-left: 25px;
-    margin: 35px 0;
-    position: relative;
-    transition: transform 0.25s ease-out;
-  }
-  .nav li:hover {
-    transform: translateX(9px); /* Move right by 7px on hover */
-  }
-  
-  .nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    display: inline-block;
-    transition: color 0.9s ease-in-out;
-  }
-  
-  .nav li::before {
-    padding-left: 20px;
-    content: "—";
-    color: #6b6b6beb; /* Arrow color */
-    position: absolute;
-    left: -20px;
-    top: 0px;
-  }
   .container {
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
+    gap: 130px;
     justify-content: space-between;
+    position: relative;
   }
   
   .card {
-    width: 46%;
+    
+    scale: 1.1;
+    width: 50%;
     position: relative;
     background: transparent; /* Transparent background */
     border-radius: 8px;
@@ -370,7 +520,20 @@ text-decoration: none; /* Prevents underline from appearing on hover */
 
 .card:hover {
   transform: scale(1.03); /* Slightly scale up the card */
+  transform: translateX(1.5);
   transition: transform 0.3s ease-in-out; /* Add transition for smooth scaling */
+}
+.visit-button{
+
+  background-color: #121212;
+}
+.visit-button:hover {
+  text-decoration: none;
+  scale: 0.95;
+}
+.project-card{
+  display: block;
+  font-family: "Raleway", sans-serif;
 }
 
   .card-content {
@@ -380,6 +543,16 @@ text-decoration: none; /* Prevents underline from appearing on hover */
     font-size: 18px;
   }
   #experience h1{
+    font-size: 70px;
+    font-family: "Grenze Gotisch", serif;
+    font-weight: 400;
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  #project h1{
+    font-size: 70px;
+    font-family: "Grenze Gotisch", serif;
+    font-weight: 400;
     padding-top: 50px;
     padding-bottom: 30px;
   }
@@ -401,7 +574,7 @@ text-decoration: none; /* Prevents underline from appearing on hover */
   }/* Base styles for the list */
 /* Base styles for the list */
 ul.custom-list {
-  list-style: disc; /* Default bullet point style */
+  list-style: none; /* Default bullet point style */
   list-style-position: inside; /* Position the marker inside the content area */
   padding: 0;
   margin: 0;
@@ -419,23 +592,18 @@ ul.custom-list {
   line-height: 1.5;
   padding-left: 24px; /* Add space for custom marker */
 }
-
-/* Custom marker styles */
-.custom-list-item::marker {
-  color: aquamarine; /* Customize marker color */
-  font-size: 20px; /* Customize marker size */
-}
-
-/* Custom hover effect for the list item */
-.custom-list-item:hover {
-  cursor: pointer;
-}
-
 /* Optional: Add transition for smooth hover effect */
 .custom-list-item {
   transition: all 0.3s ease;
 }
-
+.custom-list-item::before {
+  content: "▹"; /* Triangle symbol */
+  position: absolute;
+  left: 0;              /* Align vertically with first line */
+  color: #fff;           /* Arrow color */
+  font-size: 1.3em;
+  color: #66ccaa;
+}
 @media screen and (max-width: 768px) {
   .profile-details {
     padding-top: 100px;
@@ -485,17 +653,23 @@ ul.custom-list {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  .social-icons a {
-    margin-right: 0px;
-    scale: 0.9;
+  .social-icons {
     display: flex;
-    flex-direction: column;
-  }
+    gap: 10px;
+    max-width: 350px; /* or whatever fits your icons */
+    }
+    .social-icons a {
+    flex: 0 0 auto;
+    min-width: 0;
+    }
   .social-icons a:hover {
     scale: 0.95;
   }
   .container{
     display: contents;
+  }
+  .desktop{
+    scale: 1.5;
   }
   .card {
     padding: 10px;
@@ -504,6 +678,18 @@ ul.custom-list {
     scale: 0.9;
       width: 100%;
   }
+  #experience{
+    margin-left: 0px;
+  }
+  #project{
+    margin-left: 0px;
+  }
+  .experience-entry{
+    margin-top: 0px;
+  }
+
+  
+
   .experience-entry .title .span1{
     padding-top: 10px;
     font-size: 21px;
@@ -517,13 +703,264 @@ ul.custom-list {
     color: aquamarine;
   }
   .custom-list-item {
-    padding-left:0;
+    padding-left:1.5em;
     padding-right:15px;
     text-align: justify;
   }
+  .custom-list-item::before {
+    font-size: 1.3em;
+    top: -0.2em;
+  }
   #experience h1{
+    font-size: 40px;
     padding-bottom: 30px;
     text-align: center;
     margin-left: -15px;
+    margin-top: 50px;
+  }
+  #project h1{
+    font-size: 40px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin-left: -15px;
+    margin-top: 50px;
+  }
+  .desktop{
+    display: none;
+    margin-top:0px;margin-bottom:0px;
+  }
+  .vertical-email-bar{
+    display: none;
+  }
+  .vertical-email-bar-left{
+    display: none;
+  }
+  .para{
+    display: block;
+  }
+  .section-heading{
+    margin-left: 0px;
+  }
+  .project-card{
+    scale: 0.85;
+    padding-right: 10px;
   }
 }
+.scaleblur {
+  border: 1px solid rgba(96, 96, 96, 0.484);
+  border-radius: 1rem;
+  backdrop-filter: blur(0.8px); /* Apply subtle blur */
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.05); /* optional subtle bg */
+}
+
+.scaleblur:hover {
+  transform: scale(1.03) translateX(1.5px); /* Slight scale and shift */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Image wrapper and image styles */
+.image-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effects */
+.scaleblur:hover img {
+  transform: scale(0.95);
+  border-radius: 15px;
+}
+
+.vertical-email-bar {
+  position: fixed;
+  top: 0;
+  right: 40px; /* adjust margin from right edge */
+  height: 0vh;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  color: #ccd6f6;
+}
+.vertical-email-bar .vertical-line {
+  width: 1.5px;
+  height: 30vh;
+  margin-left: 8px;
+  background: #ccd6f6;
+  margin-bottom: 0px;
+}
+.vertical-email-bar .vertical-email {
+  font-family: "Fira Code", monospace;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #ccd6f6;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+}
+.vertical-email-bar .vertical-email a{
+  margin-top: 90px;
+  text-decoration: none;
+  color: #ccd6f6;
+  transition: color 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+}
+.vertical-email-bar .vertical-email a:hover{
+  text-decoration: none;
+  color: #66ccaa;
+  margin-top: 70px;
+}
+.vertical-email-bar-left  {
+  position: fixed;
+  top: 50%;
+  left: 45px; /* adjust margin from right edge */
+  height: 0vh;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+}
+.vertical-email-bar-left .vertical-line {
+  width: 1.5px;
+  height: 30vh;
+  margin-left: 15px;
+  margin-top: 15px;
+  background: #ccd6f6;
+}
+.vertical-email-bar-left .vertical-email {
+  font-family: "Fira Code", monospace;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #ccd6f6;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+}
+.vertical-email-bar-left .vertical-email a svg{
+  width: 25px;    
+  display: inline;
+
+}
+.vertical-email-bar-left .vertical-email a{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #ccd6f6;
+  transition: color 0.3s ease-in-out, margin-bottom 0.1s ease-in-out, margin-top 0.1s ease-in-out;
+}
+.vertical-email-bar-left .vertical-email a:hover{
+  text-decoration: none;
+  color: #3c9074;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* From Uiverse.io by satyamchaudharydev */ 
+.button-arrow {
+  font-size: 14px;
+  width: 140px;
+  height: 56px;
+  overflow: hidden;
+  border: none;
+  color: #fff;
+  background: none;
+  position: relative;
+  padding-bottom: 3em;
+  cursor: pointer;
+}
+
+.button-arrow > div,
+.button-arrow > svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.button-arrow:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  background: currentColor;
+  transition: transform 0.25s ease-out;
+}
+
+.button-arrow:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button-arrow .clone > *,
+.button-arrow .text > * {
+  opacity: 1;
+  font-size: 1.2rem;
+  transition: 0.2s;
+  margin-left: 4px;
+}
+
+.button-arrow .clone > * {
+  transform: translateY(60px);
+}
+
+.button-arrow:hover .clone > * {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-arrow:hover .text > * {
+  opacity: 1;
+  transform: translateY(-60px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-arrow:hover .clone > :nth-child(1) {
+  transition-delay: 0.15s;
+}
+
+.button-arrow:hover .clone > :nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.button-arrow:hover .clone > :nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.button-arrow:hover .clone > :nth-child(4) {
+  transition-delay: 0.3s;
+}
+/* icon style and hover */
+.button-arrow svg {
+  width: 20px;
+  right: 0;
+  top: 37%;
+  transform: translateY(-50%) rotate(-50deg);
+  transition: 0.2s ease-out;
+}
+
+.button-arrow:hover svg {
+  transform: translateY(-50%) rotate(90deg);
+}
+.connect-bg {
+    background: #272f40;
+    color: #fff;
+    padding-left: 44px;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 10px;
+  position: relative;
+  margin-left: 15px;
+  justify-content: center;
+}
+
